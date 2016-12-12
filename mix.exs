@@ -21,10 +21,10 @@ defmodule AMQP.Mixfile do
   end
 
   defp deps do
-    [{:earmark, "~> 1.0", only: :docs},
-     {:ex_doc, "~> 0.14", only: :docs},
-     {:inch_ex, "~> 0.5", only: :docs},
-     {:amqp_client, "3.5.6"}]
+    [{:earmark, "~> 1.0", only: [:docs, :dev]},
+     {:ex_doc, "~> 0.14", only: [:docs, :dev]},
+     {:inch_ex, "~> 0.5", only: [:docs, :dev]},
+     {:amqp_client, "3.6.2", hex: :conduit_amqp_client}]
   end
 
   defp description do
@@ -34,7 +34,8 @@ defmodule AMQP.Mixfile do
   end
 
   defp package do
-    [files: ["lib", "mix.exs", "README.md", "LICENSE"],
+    [name: :amqp19,
+     files: ["lib", "mix.exs", "README.md", "LICENSE"],
      maintainers: ["Paulo Almeida", "Eduardo Gurgel"],
      licenses: ["MIT"],
      links: %{"GitHub" => "https://github.com/pma/amqp"}]
